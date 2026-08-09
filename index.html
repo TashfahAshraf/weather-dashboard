@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="body" data-weather="clear">
+
+<div class="sky" aria-hidden="true">
+  <div class="sun-glow"></div>
+  <div class="clouds">
+    <span class="cloud c1"></span>
+    <span class="cloud c2"></span>
+    <span class="cloud c3"></span>
+  </div>
+  <div class="rain" id="rain-layer"></div>
+</div>
+
+<main class="app">
+
+  <header class="app-header">
+    <h1><span class="icon-sun">&#9728;&#65039;</span> Weather Dashboard</h1>
+    <form class="search-form" id="search-form" novalidate>
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+        <input type="text" id="city-input" name="city" placeholder="Search city..." autocomplete="off" aria-label="City name">
+        <button type="button" class="clear-btn" id="clear-btn" aria-label="Clear search" hidden>
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </header>
+
+  <div class="severe-banner" id="severe-banner" role="alert" hidden>
+    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+    <span id="severe-banner-text">Severe weather alert</span>
+  </div>
+
+  <section class="card-wrap">
+
+    <!-- Idle state -->
+    <div class="card state-idle" id="state-idle">
+      <i class="fa-solid fa-cloud-sun idle-icon" aria-hidden="true"></i>
+      <p>Search for a city to see the current weather.</p>
+    </div>
+
+    <!-- Loading state -->
+    <div class="card state-loading" id="state-loading" hidden>
+      <div class="skeleton skeleton-line skeleton-city"></div>
+      <div class="skeleton skeleton-line skeleton-date"></div>
+      <div class="skeleton skeleton-circle"></div>
+      <div class="skeleton skeleton-line skeleton-temp"></div>
+      <div class="skeleton skeleton-line skeleton-desc"></div>
+    </div>
+
+    <!-- Error state -->
+    <div class="card state-error" id="state-error" hidden>
+      <i class="fa-solid fa-cloud-bolt error-icon" aria-hidden="true"></i>
+      <p class="error-title">City not found</p>
+      <p class="error-msg" id="error-message">Check the spelling and try again.</p>
+    </div>
+
+    <!-- Result state -->
+    <div class="card state-result" id="state-result" hidden>
+      <p class="result-city" id="result-city">Lahore, Pakistan</p>
+      <p class="result-date" id="result-date">Saturday, 3:45 PM</p>
+
+      <div class="weather-icon" id="weather-icon" aria-hidden="true">
+        <i class="fa-solid fa-cloud-sun"></i>
+      </div>
+
+      <p class="result-temp" id="result-temp">32&deg;C</p>
+      <p class="result-desc" id="result-desc">Partly Cloudy</p>
+
+      <div class="insight" id="insight">
+        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+        <span id="insight-text">Good day to be outside.</span>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <p class="stat-label">Feels Like</p>
+          <p class="stat-value" id="stat-feels-like">34&deg;C</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Humidity</p>
+          <p class="stat-value" id="stat-humidity">45%</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Wind</p>
+          <p class="stat-value" id="stat-wind">12 km/h</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="app-footer">
+    <p>Weather data by <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a></p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
