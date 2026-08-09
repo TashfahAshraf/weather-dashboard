@@ -3,7 +3,7 @@
 A responsive weather dashboard built for the Live Pakistan Internship Program — Week 2 (Front-End Web Development).
 
 ## Live Demo
-[Add your deployed link here]
+https://tashfahashraf.github.io/weather-dashboard/
 
 ## API used
 
