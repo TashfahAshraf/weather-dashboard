@@ -17,7 +17,7 @@ Because no key is required, **there is nothing to hide or exclude from this repo
 ## Features
 - Search any city worldwide, with Enter-key support and a clear ("×") button in the search field
 - Displays temperature, feels-like temperature, humidity, wind speed, and condition
-- Weather-condition icon and a background that shifts mood (clear / cloudy / rain / snow / storm / night) based on the live result
+- Weather-condition icon and an animated background that matches the live result — sun glow on clear days, drifting clouds when cloudy, falling rain in wet conditions, and a starry sky with a moon glow at night
 - Smart insight sentence (e.g. "Good day for a run", "Bring an umbrella") generated from the current temperature, condition, wind, and humidity
 - Severe weather banner — shown automatically for thunderstorms, hail, heavy rain/snow, extreme heat/cold, or high wind
 - Loading state (skeleton UI) while data is being fetched
