@@ -64,6 +64,52 @@ body[data-weather="clear"] .sun-glow { opacity: 1; }
   50% { transform: scale(1.15); }
 }
 
+.moon-glow {
+  position: absolute;
+  top: -40px;
+  right: -20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,236,255,0.5) 0%, rgba(224,236,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+body[data-weather="night"] .moon-glow { opacity: 1; }
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  background-image:
+    radial-gradient(1.6px 1.6px at 10% 20%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 25% 60%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 40% 15%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 55% 80%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 70% 30%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 85% 55%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 15% 85%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 92% 12%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 60% 45%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 35% 95%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 5% 50%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 78% 75%, #fff, transparent);
+  background-repeat: no-repeat;
+}
+
+body[data-weather="night"] .stars {
+  opacity: 1;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
 .clouds { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; }
 
 body[data-weather="cloudy"] .clouds,
@@ -125,7 +171,7 @@ body[data-weather="storm"] .rain { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sun-glow, .cloud, .rain { animation: none; }
+  .sun-glow, .moon-glow, .cloud, .rain, .stars { animation: none; }
 }
 
 /* layout */
